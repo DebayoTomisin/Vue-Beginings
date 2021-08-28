@@ -12,9 +12,41 @@ export default {
   name: 'App',
   components: {
     Header
+  },
+
+  data () {
+    return {
+      tasks : []
+    }
+  },
+
+  created() {
+    this.task = [
+      {
+        id: 1,
+        text: 'Meet the Doctor',
+        day: 'May 3, 2021',
+        reminder: false
+      },
+      
+      {
+        id: 2,
+        text: 'Play COD Modern Warfare',
+        day: 'April 3, 2021',
+        reminder: false
+      },
+
+      {
+        id: 3,
+        text: 'Meet with Supervisor',
+        day: 'June 12, 2021',
+        reminder: true
+      },
+    ]
   }
 }
 </script>
+
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');

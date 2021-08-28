@@ -11,3 +11,7 @@ The SCRIPT
 Inside of the script is where we import and export the files needed for both purposes.
 When writing methods, we use the methods object and then write whatever functions that
 is needed inside of the template to ensure functionality.
+
+data is more or less like your state.
+created is like a useEffect lifecycle method in react, that loads when the component is rendered, also used when dealing with api calls etc hence its similiarity to useEffect.
+The data is a function that returns an object, more or less your state.
