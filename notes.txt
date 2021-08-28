@@ -1,0 +1,13 @@
+interpolation in vue is done with double curly braces rather than one.
+
+A vue file has three main sections
+1. The TEMPLATE, This is where the UI is written, the HTML tags etc like that
+2. The SCRIPT, This is where the logic is written and also where exports and imports are called
+	it is essentially the javascript file of the application.
+3. The STYLE, this section is where the styling takes place really.
+
+
+The SCRIPT
+Inside of the script is where we import and export the files needed for both purposes.
+When writing methods, we use the methods object and then write whatever functions that
+is needed inside of the template to ensure functionality.

@@ -1,6 +1,5 @@
 <template>
-    <div>This is the first line of vue code i'll be writing</div>
-    <div id="counter">Counter: {{ counter }}</div>
+    <h1>Hello from the counter component </h1>
 </template>
 
 <script>
