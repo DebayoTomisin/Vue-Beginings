@@ -1,17 +1,20 @@
 <template>
   <div class="container">
     <Header title="Task Manager" />
+	<Tasks :tasks="tasks" />
   </div>
 </template>
 
 <script>
 
 import Header from "./components/Header"
+import Tasks from "./components/Tasks"
 // import Home from "@/views/Home.vue"
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+	Tasks
   },
 
   data () {
@@ -21,14 +24,14 @@ export default {
   },
 
   created() {
-    this.task = [
+    this.tasks = [
       {
         id: 1,
         text: 'Meet the Doctor',
         day: 'May 3, 2021',
         reminder: false
       },
-      
+
       {
         id: 2,
         text: 'Play COD Modern Warfare',

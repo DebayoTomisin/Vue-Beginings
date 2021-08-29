@@ -13,5 +13,11 @@ When writing methods, we use the methods object and then write whatever function
 is needed inside of the template to ensure functionality.
 
 data is more or less like your state.
+
 created is like a useEffect lifecycle method in react, that loads when the component is rendered, also used when dealing with api calls etc hence its similiarity to useEffect.
+
 The data is a function that returns an object, more or less your state.
+
+v-for is what is used to loop through an array or list, usually placed inside of the element that will render the looped results.
+
+v-on is used for event listeners
