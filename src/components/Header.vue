@@ -1,7 +1,7 @@
 <template>
     <header>
         <h1>{{title}} </h1>
-        <Button color="red" text="Add Task" />
+        <Button @btn-click="$emit('toggle-add-task')" :color="showAddTask ? 'red': 'green'" :text="showAddTask ? 'Close' : 'Add Task' " />
     </header>
 </template>
 
@@ -13,11 +13,13 @@
             title : {
                 type : String, // there are several was of declaring props, in this case the name of the prop is title with type string and a default value.
                 default: 'Hello There'
-            }
+            },
+            showAddTask: Boolean,
         },
         components: {
             Button
-        }
+        },
+        emit : ['toggle-add-task']
     }
 </script>
 

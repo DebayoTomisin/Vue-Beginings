@@ -12,7 +12,7 @@
 
         methods: {
             onClick (){
-                console.log('button has been clicked')
+                this.$emit('btn-click')
             }
         }
     }
