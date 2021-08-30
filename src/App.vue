@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Header title="Task Manager" />
-	<Tasks @delete-task= "deleteTask" :tasks="tasks" />
+	<Tasks @delete-task= "deleteTask" :tasks="tasks" @toggle-reminder= "toggleReminder" />
   </div>
 </template>
 
@@ -26,6 +26,10 @@ export default {
   methods: {
 	deleteTask(id) {
 		this.tasks = this.tasks.filter((task) => task.id !== id)
+	},
+	
+	toggleReminder (id){
+		this.tasks = this.tasks.map((task) => task.id === id ?  {...task, reminder: !task.reminder } : task)
 	}
   },
 
