@@ -25,3 +25,8 @@ v-on is used for event listeners.
 v-model is used to link or bind the input change to the state(data)
 v-if is used in conditional redndering
 v-for is used for iterating through a list of elements
+
+#emit is used for method or prop forwarding, this basically means passing custom events up the component tree. moving methods from lower component to a high one, the method is called using the custom event that is used to describe it in the component where it is used.
+When you've gotten to the said component, yoiu have to set the events being emitted in an array to remove a browser error.
+
+LIFE CYCLE METHODS
