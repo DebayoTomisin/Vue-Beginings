@@ -44,34 +44,34 @@ export default {
       this.tasks = this.tasks.map((task) => task.id === id ?  {...task, reminder: !task.reminder } : task)
     },
 
-    addTask(newTask){
-      this.tasks = [...this.tasks, newTask]
+    async addTask(newTask){
+      const res = await fetch('api/tasks', {
+        method: 'POST',
+        headers:{
+          'Content-type': 'Application/json'
+        },
+        body: JSON.stringify(newTask)
+      })
+
+      const data = await res.json()
+      this.tasks = [...this.tasks, data]
+    },
+
+    async fetchTasks () {
+      const response = await fetch("api/tasks")
+      const data = await response.json()
+      return data
+    },
+
+    async fetchTask (id) {
+      const response = await fetch(`api/tasks/${id}`)
+      const data = await response.json()
+      return data
     }
   },
 
-  created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Meet the Doctor',
-        day: 'May 3, 2021',
-        reminder: false
-      },
-
-      {
-        id: 2,
-        text: 'Play COD Modern Warfare',
-        day: 'April 3, 2021',
-        reminder: false
-      },
-
-      {
-        id: 3,
-        text: 'Meet with Supervisor',
-        day: 'June 12, 2021',
-        reminder: true
-      },
-    ]
+  async created() {
+    this.tasks = await this.fetchTasks()
   }
 }
 </script>
