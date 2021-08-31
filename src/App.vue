@@ -1,73 +1,35 @@
 <template>
   <div class="container">
     <Header @toggle-add-task="toggleAddTask" title="Task Manager" :showAddTask="showAddTask" />
-
-    <div v-if="showAddTask">
-      <AddTask @add-task= "addTask" />
-    </div>
-	
-	<Tasks @delete-task= "deleteTask" :tasks="tasks" @toggle-reminder= "toggleReminder" />
+  <router-view :showAddTask ="showAddTask"></router-view>
+  <Footer />
   </div>
 </template>
 
 <script>
 
 import Header from "./components/Header"
-import Tasks from "./components/Tasks"
-import AddTask from './components/AddTask'
+
+import Footer from "./components/Footer"
 // import Home from "@/views/Home.vue"
 export default {
   name: 'App',
   components: {
     Header,
-    Tasks,
-    AddTask,
+    Footer
   },
 
   data () {
     return {
-      tasks : [],
       showAddTask: false
     }
   },
 
-  methods: {
-    deleteTask(id) {
-      this.tasks = this.tasks.filter((task) => task.id !== id)
-    },
-
+  methods: { 
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
     },
-    
-    toggleReminder (id){
-      this.tasks = this.tasks.map((task) => task.id === id ?  {...task, reminder: !task.reminder } : task)
-    },
-
-    async addTask(newTask){
-      const res = await fetch('api/tasks', {
-        method: 'POST',
-        headers:{
-          'Content-type': 'Application/json'
-        },
-        body: JSON.stringify(newTask)
-      })
-
-      const data = await res.json()
-      this.tasks = [...this.tasks, data]
-    },
-
-    async fetchTasks () {
-      const response = await fetch("api/tasks")
-      const data = await response.json()
-      return data
-    },
-
-    async fetchTask (id) {
-      const response = await fetch(`api/tasks/${id}`)
-      const data = await response.json()
-      return data
-    }
+        
   },
 
   async created() {
