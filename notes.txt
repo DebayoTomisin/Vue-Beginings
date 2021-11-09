@@ -31,3 +31,11 @@ v-for is used for iterating through a list of elements
 When you've gotten to the said component, yoiu have to set the events being emitted in an array to remove a browser error.
 
 LIFE CYCLE METHODS
+
+1.BeforeCreate() :  This is the first lifecycle method that is called immediately after the vue instance has been initialized. right before any component is loaded.
+
+2. created(): This is called immediately after beforecreate and already holds computed state values, properties, etc.
+
+3. beforeMount
+
+1. Mounted:  This liecycle hook is called by vue when your component is added to the dom. used to fetch http data that the component will render
